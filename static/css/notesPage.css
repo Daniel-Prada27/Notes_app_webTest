@@ -1,0 +1,40 @@
+.main-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#title-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+#title-container > h1{
+    color: rgb(67, 144, 211);
+}
+
+#in-out-container {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+#in-out-btn, #new-note-btn {
+    border-radius: 6px;
+    background-color: rgb(67, 144, 211);
+    color: white;
+}
+
+#in-out-btn {
+    margin-right: 10px;
+}
+
+#new-note-btn, .table {
+    margin-left: 20px;
+}
+
+.table {
+    border: 1px solid black;
+    width: 95%;
+    margin-top: 30px;
+}
