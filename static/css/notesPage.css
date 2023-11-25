@@ -37,4 +37,10 @@
     border: 1px solid black;
     width: 95%;
     margin-top: 30px;
+    text-align: center;
+}
+
+.actions-container {
+    display: flex;
+    justify-content: space-evenly;
 }
