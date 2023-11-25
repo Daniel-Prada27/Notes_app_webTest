@@ -1,17 +1,14 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}" / defer>
-    <link rel="stylesheet" href="{% static '/css/notesPage.css' %}" defer>
-    <title>Crear Nota</title>
-</head>
+
+{% block extraHead %}
+<link rel="stylesheet" href="../../static/css/createNote.css" defer>
+<title>Crear Nota</title>
+{% endblock extraHead %}
+
+{% block body %}
 <body>
- 
 <h1 class="display-3" id="title">Nueva Nota</h1>
-<p>Ingrese los datos del la nueva nota</p>
 <div class="container formulario">
     <form method="POST" enctype="multipart/form-data">
  
@@ -27,7 +24,5 @@
         <a type="button" class="btn btn-danger" href="{% url 'notesPage' %}">Cancelar</a>
     </form>   
 </div>
-
-
 </body>
-</html>
+{% endblock body %}
