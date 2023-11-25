@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}" / defer>
-        <link rel="stylesheet" href="{% static '/css/notesPage.css' %}">
+        <link rel="stylesheet" href="{% static '/css/notesPage.css' %}" defer>
         <!-- <link rel="stylesheet" href="{% static '/css/base.css' %}" > -->
     </head>
     <body>
@@ -16,11 +16,12 @@
             </div>
 
             <div id="in-out-container">
-                <button id="in-out-btn">Ingresar/Salir</button>
+                <!-- <button id="in-out-btn" onclick=""></button> -->
+                <a href="#"  id="in-out-btn" class="btn btn-primary">Ingresar/Salir</a>
             </div>
 
             <div id="new-note-container">
-                <button id="new-note-btn">Nueva Nota</button>
+                <a href="{% url 'createNotePage' %}"  id="new-note-btn" class="btn btn-primary">Nueva Nota</a>
             </div>
 
             <div id="notes-container">
