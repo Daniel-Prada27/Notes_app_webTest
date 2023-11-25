@@ -1,11 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+{% extends 'base.html' %} {% load static %} {% block extraHead %}
+<link rel="stylesheet" href="../../static/css/note.css" defer />
+<title>Note</title>
+{% endblock extraHead %} {% block body %}
 <body>
-    
+    <div id="main-container" class="border border-4 border-primary">
+        <div id="title-container">
+            <h2>Note title</h2>
+        </div>
+        <div id="body-container">
+            <p>Note body</p>
+        </div>
+    </div>
 </body>
-</html>
+{% endblock body %}

@@ -43,3 +43,8 @@ def newNotePage(request):
     context['form'] = form
     #Retornar respuesta http
     return HttpResponse(template.render(context,request))
+
+def viewNote(request):
+    template = loader.get_template("verNota.html")
+    context = {}
+    return HttpResponse(template.render(context,request))
