@@ -14,6 +14,6 @@
             <p>Fecha de creación: {{ note.creation_date }}</p>
         </div>
     </div>
-    <a href="{% url 'notesPage' %}" class="btn btn-primary">Regresar</a>
+    <a href="{% url 'notesPagePag'%}?page={{ page }}" class="btn btn-primary">Regresar</a>
 </body>
 {% endblock body %}

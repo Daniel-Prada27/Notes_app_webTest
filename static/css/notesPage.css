@@ -44,3 +44,7 @@
     display: flex;
     justify-content: space-evenly;
 }
+
+.pagination {
+    margin-left: 20px;
+}

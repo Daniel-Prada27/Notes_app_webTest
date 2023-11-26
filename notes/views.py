@@ -15,7 +15,7 @@ def notesPage(request):
     # notes_list = notes_list.reverse()
     paginator = Paginator(notes_list, 5)
 
-    page_number = request.GET.get('page', 0)
+    page_number = request.GET.get('page', 1)
     page_obj = paginator.get_page(page_number)
 
     template = loader.get_template("mostrarNotas.html")
@@ -72,8 +72,9 @@ def deleteNotePage(request, id):
     #Retornar respuesta http
     return HttpResponse(template.render(context,request))
 
-def viewNotePage(request, id):
+def viewNotePage(request, id, page):
     note = Note.objects.get(id=id)
+    page_number = page
     template = loader.get_template("verNota.html")
-    context = {'note': note}
+    context = {'note': note, "page": page_number}
     return HttpResponse(template.render(context,request))
