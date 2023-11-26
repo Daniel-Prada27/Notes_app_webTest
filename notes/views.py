@@ -44,7 +44,23 @@ def newNotePage(request):
     #Retornar respuesta http
     return HttpResponse(template.render(context,request))
 
-def viewNote(request, id):
+def editNotePage(request,id):
+    #Obtener el template
+    template = loader.get_template("editarNota.html")
+    #Buscar Producto
+    obj = get_object_or_404(Note, id = id)
+    #formulario que contiene la instancia
+    form = NoteForm(request.POST or None, instance = obj)
+    if form.is_valid():
+        form.save()
+        return redirect('notesPage')   
+    #Agregar el contexto
+    context = {}
+    context['form'] = form
+    #Retornar respuesta http
+    return HttpResponse(template.render(context,request))
+
+def viewNotePage(request, id):
     note = Note.objects.get(id=id)
     template = loader.get_template("verNota.html")
     context = {'note': note}
