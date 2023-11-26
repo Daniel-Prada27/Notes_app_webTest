@@ -34,7 +34,7 @@
                             <td>{{note.creation_date|date:"d-m-Y"}} </td> <!-- |date: "d-m-y" formatea la fecha-->
                             <td> 
                                 <div class="actions-container">
-                                <a href="#" class="btn btn-primary">Detalles</a> <a href="#" class="btn btn-warning">Editar</a> <a href="#" class="btn btn-danger">Borrar</a></td>
+                                <a href="{% url 'viewNotePage' note.id %}" class="btn btn-primary">Ver</a> <a href="#" class="btn btn-warning">Editar</a> <a href="#" class="btn btn-danger">Borrar</a></td>
                                 </div>
                         </tr>
 
@@ -42,6 +42,23 @@
                     </tbody>
                 </table>
             </div>
+            <div class="pagination">
+                <span class="step-links">
+                    {% if page_obj.has_previous %}
+                        <a href="?page=1">&laquo; first</a>
+                        <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                    {% endif %}
+            
+                    <span class="current">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                    </span>
+            
+                    {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}">next</a>
+                        <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                    {% endif %}
+                </span>
+            </div>   
         </div>
     </body>
 {% endblock body %}

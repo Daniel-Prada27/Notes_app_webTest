@@ -12,7 +12,7 @@ from django.shortcuts import redirect,get_object_or_404
 def notesPage(request):
 
     notes_list = Note.objects.all()
-    
+    # notes_list = notes_list.reverse()
     paginator = Paginator(notes_list, 5)
 
     page_number = request.GET.get('page', 0)
@@ -44,7 +44,8 @@ def newNotePage(request):
     #Retornar respuesta http
     return HttpResponse(template.render(context,request))
 
-def viewNote(request):
+def viewNote(request, id):
+    note = Note.objects.get(id=id)
     template = loader.get_template("verNota.html")
-    context = {}
+    context = {'note': note}
     return HttpResponse(template.render(context,request))
