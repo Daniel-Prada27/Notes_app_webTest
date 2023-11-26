@@ -11,7 +11,7 @@ from django.shortcuts import redirect,get_object_or_404
 
 def notesPage(request):
 
-    notes_list = Note.objects.all()
+    notes_list = Note.objects.all().order_by('creation_date').reverse()
     # notes_list = notes_list.reverse()
     paginator = Paginator(notes_list, 5)
 
