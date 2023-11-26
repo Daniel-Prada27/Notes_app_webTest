@@ -60,6 +60,18 @@ def editNotePage(request,id):
     #Retornar respuesta http
     return HttpResponse(template.render(context,request))
 
+def deleteNotePage(request, id):
+    template = loader.get_template("eliminarNota.html")
+    #Buscar el producto
+    obj = get_object_or_404(Note, id = id)
+    if request.method == "POST":
+        obj.delete()
+        return redirect('notesPage')
+    #Agregar el contexto
+    context = {"note": obj}
+    #Retornar respuesta http
+    return HttpResponse(template.render(context,request))
+
 def viewNotePage(request, id):
     note = Note.objects.get(id=id)
     template = loader.get_template("verNota.html")

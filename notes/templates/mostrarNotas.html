@@ -34,7 +34,7 @@
                             <td>{{note.creation_date|date:"d-m-Y"}} </td> <!-- |date: "d-m-y" formatea la fecha-->
                             <td> 
                                 <div class="actions-container">
-                                <a href="{% url 'viewNotePage' note.id %}" class="btn btn-primary">Ver</a> <a href="{% url 'editNotePage' note.id %}" class="btn btn-warning">Editar</a> <a href="#" class="btn btn-danger">Borrar</a></td>
+                                <a href="{% url 'viewNotePage' note.id %}" class="btn btn-primary">Ver</a> <a href="{% url 'editNotePage' note.id %}" class="btn btn-warning">Editar</a> <a href="{% url 'deleteNotePage' note.id %}" class="btn btn-danger">Borrar</a></td>
                                 </div>
                         </tr>
 
