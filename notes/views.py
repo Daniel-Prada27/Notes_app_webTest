@@ -11,7 +11,11 @@ from django.shortcuts import redirect,get_object_or_404
 
 def notesPage(request):
 
-    notes_list = Note.objects.all().order_by('creation_date').reverse()
+    
+    if request.user.is_authenticated:
+        notes_list = Note.objects.filter(ref_user=request.user).order_by('creation_date').reverse()
+    else:
+        notes_list = Note.objects.filter(ref_user__isnull=True).order_by('creation_date').reverse()
     # notes_list = notes_list.reverse()
     paginator = Paginator(notes_list, 5)
 
@@ -33,6 +37,8 @@ def newNotePage(request):
             new_note = form.save(commit=False)
             #Asignar fecha de creación
             new_note.creation_date = datetime.now()
+            if request.user.is_authenticated:
+                new_note.ref_user = request.user
             #Guardar Producto
             new_note.save()
             return redirect('notesPage')
