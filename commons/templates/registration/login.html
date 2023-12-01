@@ -4,9 +4,29 @@
 <!--EJEMPLO ADAPTADO DE https://www.w3schools.com/howto/howto_css_login_form.asp -->
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}" / defer>
 <style>
-body {font-family: Arial, Helvetica, sans-serif;}
-form {border: 3px solid #f1f1f1;}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#titles-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+}
+
+.register-title {
+    color: rgb(67, 144, 211);
+    align-self: center;
+}
+
+/* form {border: 3px solid #f1f1f1;} */
 
 input[type=text], input[type=password] {
   width: 100%;
@@ -18,7 +38,7 @@ input[type=text], input[type=password] {
 }
 
 button {
-  background-color: #04AA6D;
+  background-color: rgb(67, 144, 211);
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -78,7 +98,10 @@ span.psw {
 
 
 <div class="contenedor">
-    <h2>Ingreso</h2>
+    <div id="titles-container">
+        <h2 class="register-title">Ingreso</h2>
+        <h6 class="register-title">(App de notas)</h6>
+    </div>
     <form action="{% url 'login' %}" method="post"> 
     {% csrf_token %}
     <div class="container">
@@ -95,17 +118,17 @@ span.psw {
             {% endif %}
         {% endif %}
 
-        <label for="uname"><b>Nombre Usuario</b></label>
+        <label for="uname"><b>Usuario</b></label>
         {{ form.username }}
 
         <label for="psw"><b>Contraseña</b></label>
         {{ form.password }}
             
-        <button type="submit">Ingresar</button>
+        <button type="submit" class="btn btn-primary">Ingresar</button>
         <label>
         <input type="checkbox" checked="checked" name="remember"> Recuerdame
         <p>No tienes cuenta? <a href="{% url 'registro' %}">Registrarse</a></p>
-        <p><a href="{% url 'notesPage' %}">Continúa como invitado</a></p>
+        <p><a href="{% url 'notesPage' %}">Continuar como invitado</a></p>
         </label>
     </div>
 

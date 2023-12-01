@@ -13,7 +13,18 @@ body {
     height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
 }
-/* form {border: 3px solid #f1f1f1;} */
+
+#titles-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+}
+
+.register-title {
+    color: rgb(67, 144, 211);
+    align-self: center;
+}
 
 input[type=text], input[type=password], input[type=email] {
   width: 100%;
@@ -70,7 +81,11 @@ span.psw {
 </head>
 <body>
     <div class="contenedor">
-        <h2>Registro</h2>
+        <div id="titles-container">
+            <h2 class="register-title">Registro Usuario</h2>
+            <h6 class="register-title">(App de notas)</h6>
+        </div>
+
         <form method="POST">
             {% csrf_token %}
             <div class="row mb-3">
