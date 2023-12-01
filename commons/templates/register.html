@@ -4,11 +4,18 @@
 <!--EJEMPLO ADAPTADO DE https://www.w3schools.com/howto/howto_css_login_form.asp -->
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}" / defer>
 <style>
-body {font-family: Arial, Helvetica, sans-serif;}
-form {border: 3px solid #f1f1f1;}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* form {border: 3px solid #f1f1f1;} */
 
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=email] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -18,7 +25,7 @@ input[type=text], input[type=password] {
 }
 
 button {
-  background-color: #04AA6D;
+  background-color: rgb(67, 144, 211);
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -31,29 +38,17 @@ button:hover {
   opacity: 0.8;
 }
 
-.cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color: #f44336;
-}
-
-.imgcontainer {
-  text-align: center;
-  margin: 24px 0 12px 0;
-}
-
-img.avatar {
-  width: 40%;
-  border-radius: 50%;
-}
-
 .container {
   padding: 16px;
+  justify-self: center;
+  align-self: center;
 }
 
 .contenedor{
     width: 50vw;
-    margin-left: 25vw;
+    /* margin-left: 25vw; */
+    justify-self: center;
+    align-self: center;
 }
 
 span.psw {
@@ -76,14 +71,48 @@ span.psw {
 <body>
     <div class="contenedor">
         <h2>Registro</h2>
-        <form  method="POST"> 
+        <form method="POST">
+            {% csrf_token %}
+            <div class="row mb-3">
+              <label for="inputEmail3" class="col-sm-2 col-form-label">Correo</label>
+              <div class="col-sm-10">
+                {{ register_form.email }}
+              </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Nombre Completo</label>
+                <div class="col-sm-10">
+                  {{ register_form.first_name }}
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Usuario</label>
+                <div class="col-sm-10">
+                  {{ register_form.username }}
+                </div>
+              </div>
+            <div class="row mb-3">
+              <label for="inputPassword3" class="col-sm-2 col-form-label">Contraseña</label>
+              <div class="col-sm-10">
+                {{ register_form.password1}}
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Registrar</button>
+          </form>
+        <!-- <form  method="POST"> 
         {% csrf_token %}
         <div class="container">
-            {{ register_form.as_p }}                    
-            <button class="btn btn-primary" type="submit">Register</button>
+            {{ register_form.as_p }}
+            Correo {{ register_form.email }}
+            <br>
+            <br>
+            Nombre Completo {{ register_form.first_name}}
+            Usuario {{ register_form.username}}
+            Contraseña {{ register_form.password1}}
+            <button class="btn btn-primary" type="submit">Registrar</button>
         </div>
-        </form>
-        <p class="text-center">Si ya tienes una cuenta, <a href="{% url 'login' %}">login</a> en ese caso.</p>
+        </form> -->
+        <p class="text-center">Ya tengo una cuenta, <a href="{% url 'login' %}">login</a></p>
     </div>
 </body>
 </html>
