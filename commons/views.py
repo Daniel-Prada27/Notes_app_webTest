@@ -14,7 +14,7 @@ def registro(request):
             login(request,user)
             messages.success(request, "Registro Exitoso")
             return redirect('login')
-        messages.error(request,"No fue posible el Registro. Información Invalida")
+        messages.error(request, form.errors)
     form = NewUserForm()
     context = {"register_form":form}
     template = loader.get_template("register.html")

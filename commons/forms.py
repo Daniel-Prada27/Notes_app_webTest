@@ -15,6 +15,14 @@ class NewUserForm(UserCreationForm):
         model = User
         fields = ("email", "first_name", "username", "password1")
     
+    # No sirvió
+    # def clean_username(self):
+    #     username = self.cleaned_data.get('username')
+    #     print(f"validando {username}")
+    #     if User.objects.filter(username=username).exists():
+    #         raise forms.ValidationError('El nombre de usuario ya existe')
+    #     return username
+
     def save(self, commit=True):
         user = super(NewUserForm, self).save(commit=False)
         user.email = self.cleaned_data['email']

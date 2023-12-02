@@ -114,19 +114,6 @@ span.psw {
             </div>
             <button type="submit" class="btn btn-primary">Registrar</button>
           </form>
-        <!-- <form  method="POST"> 
-        {% csrf_token %}
-        <div class="container">
-            {{ register_form.as_p }}
-            Correo {{ register_form.email }}
-            <br>
-            <br>
-            Nombre Completo {{ register_form.first_name}}
-            Usuario {{ register_form.username}}
-            Contraseña {{ register_form.password1}}
-            <button class="btn btn-primary" type="submit">Registrar</button>
-        </div>
-        </form> -->
         <p class="text-center">Ya tengo una cuenta, <a href="{% url 'login' %}">login</a></p>
     </div>
 </body>
