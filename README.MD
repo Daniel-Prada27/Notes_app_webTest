@@ -1,5 +1,5 @@
 ### PARTICIPANTES
-Santiago Pinto Leguizamon - 2221888
+Santiago Pinto Leguizamon - 2221888\
 Daniel Santiago Prada Hernández - 2221891
 
 ### VIDEO
